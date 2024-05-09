@@ -10,7 +10,7 @@ const Contact = () => {
       e.preventDefault();
   
       emailjs
-        .sendForm('service_436o63g', 'template_mz69ivo', form.current, {
+        .sendForm('service_ydufp28', 'template_mz69ivo', form.current, {
           publicKey: 'efKP4QjrHW-A9j0yK',
         })
         .then(
@@ -27,7 +27,7 @@ const Contact = () => {
 
 
     return (
-        <div id={"Contact"}className="min-h-screen min-w-screen bg-base-300">
+        <div id={"Contact"} className="min-h-screen min-w-screen bg-base-300">
             <div className="flex items-center justify-center p-12">
                 <div className="mx-auto w-full max-w-[550px]">
                     <form ref={form} onSubmit={sendEmail}>
