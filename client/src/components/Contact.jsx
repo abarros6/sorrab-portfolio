@@ -34,7 +34,7 @@ const Contact = () => {
                         <h1 className="mb-10 text-center text-5xl font-bold">Email Me</h1>
                         <div className="mb-5">
                             <label
-                            for="user_name"
+                            htmlFor="user_name"
                             className="mb-3 block text-base font-medium "
                             >
                             Full Name
@@ -49,7 +49,7 @@ const Contact = () => {
                         </div>
                         <div className="mb-5">
                             <label
-                            for="user_email"
+                            htmlFor="user_email"
                             className="mb-3 block text-base font-medium "
                             >
                             Email Address
@@ -64,7 +64,7 @@ const Contact = () => {
                         </div>
                         <div className="mb-5">
                             <label
-                            for="message"
+                            htmlFor="message"
                             className="mb-3 block text-base font-medium "
                             >
                             Message
@@ -78,9 +78,6 @@ const Contact = () => {
                             ></textarea>
                         </div>
                         <div className = "flex justify-center">
-                            {/* <button className="hover:shadow-form rounded-md btn btn-primary py-3 px-8 text-base font-semibold outline-none">
-                            Submit
-                            </button> */}
                             <input className = "hover:shadow-form rounded-md btn btn-primary py-3 px-8 text-base font-semibold outline-none"
                         type={"submit"} value="Send"></input>
                         </div>

@@ -1,18 +1,20 @@
+import TileGame from '../assets/TileGame.png'
+
 const Projects = () => {
     return (
         <div id={"Projects"} className="min-h-screen min-w-screen bg-base">
-            <h1 className="mb-10 text-center text-5xl font-bold m-10">Some Projects</h1>
-            <div className="card lg:card-side bg-base-300 shadow-xl m-20" >
-                <figure><img src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg" alt="Album"/></figure>
+            <h1 className="mb-10 text-center text-5xl font-bold m-10">Projects</h1>
+            <div className="card lg:card-side bg-base-300 shadow-xl m-10" >
+                <figure><img src={TileGame} alt="Album"/></figure>
                 <div className="card-body">
-                    <h2 className="card-title">New album is released!</h2>
-                    <p>Click the button to listen on Spotiwhy app.</p>
+                    <h2 className="card-title">Chess Square Game</h2>
+                    <p>This game was created to allow me to have a fun </p>
                     <div className="card-actions justify-end">
                         <button className="btn btn-primary">Listen</button>
                     </div>
                 </div>
             </div>
-            <div className="card lg:card-side bg-base-300 shadow-xl m-20" >
+            <div className="card lg:card-side bg-base-300 shadow-xl m-10" >
                 <div className="card-body">
                     <h2 className="card-title">New album is released!</h2>
                     <p>Click the button to listen on Spotiwhy app.</p>
