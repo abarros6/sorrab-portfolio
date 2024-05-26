@@ -4,7 +4,7 @@ import resume from "../assets/Resume.pdf"
 
 const Navbar = () => {
 	return (
-        <div id= {"Navbar"} className="navbar fixed bg-base-100 z-50 top-0-vh transition-[4rem] duration-300 delay-500 ">
+        <div id= {"Navbar"} className="navbar fixed bg-base-100 z-50 top-0-vh  ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">
