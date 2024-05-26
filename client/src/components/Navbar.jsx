@@ -1,4 +1,5 @@
 import horse from "../assets/horse.svg"
+import resume from "../assets/Resume.pdf"
 
 
 const Navbar = () => {
@@ -12,17 +13,17 @@ const Navbar = () => {
                             </path>
                         </svg>
                     </label>
-                    <ul tabIndex="0" className="text-primary menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex="0" className="text-primary menu menu-compact font-bold dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><a href="#About">About</a></li>
                         <li><a href="#Projects">Projects</a></li>
                         <li><a href="#Contact">Contact</a></li>
-                        <li className="text-secondary"><a target="_blank" href="/Resume.pdf" rel="noreferrer">Resume</a></li>
+                        <li><a target="_blank" href={resume} rel="noreferrer noopener">Resume</a></li>
                     </ul>
                 </div>
                     <a href="" className="btn btn-ghost normal-case text-xl">Anthony Barros</a>
-                </div>
+            </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal p-0 text-primary">
+                <ul className="menu menu-horizontal p-0 text-primary font-bold">
                     <li><a href="#About">About</a></li>
                     <li><a href="#Projects">Projects</a></li>
                     <li><a href="#Contact">Contact</a></li>
@@ -30,9 +31,9 @@ const Navbar = () => {
                 
             </div>
             <div className="navbar-end hidden lg:flex">
-                <ul className="menu menu-horizontal p-0">
-                    <li className='text-secondary'>
-                        <a target="_blank" href="/Resume.pdf" rel="noreferrer">Resume</a>
+                <ul className="menu menu-horizontal text-primary p-0 font-bold">
+                    <li>
+                        <a target="_blank" href={resume} rel="noreferrer noopener">Resume</a>
                     </li>
                 </ul>
             </div>

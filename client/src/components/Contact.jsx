@@ -31,7 +31,7 @@ const Contact = () => {
             <div className="flex items-center justify-center p-12">
                 <div className="mx-auto w-full max-w-[550px]">
                     <form ref={form} onSubmit={sendEmail}>
-                        <h1 className="mb-10 text-center text-5xl font-bold">Email Me</h1>
+                        <h1 className="mb-10 text-center text-5xl font-bold">Say hi 👋</h1>
                         <div className="mb-5">
                             <label
                             htmlFor="user_name"
