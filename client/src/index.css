@@ -1,3 +1,111 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--fallback-b2, oklch(var(--b2)));
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--fallback-p, oklch(var(--p)));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--fallback-pf, oklch(var(--pf)));
+}
+
+/* Add smooth scrolling to all elements */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Container class for consistent padding */
+.container {
+  @apply px-4 mx-auto max-w-7xl;
+}
+
+/* Custom animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Section transitions */
+.section-transition {
+  transition: all 0.5s ease-in-out;
+}
+
+/* Card hover effects */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Custom focus styles */
+input:focus, textarea:focus {
+  @apply border-primary outline-none ring-2 ring-primary ring-opacity-50;
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+}
+
+/* Hero image animation */
+.hero-content .relative.group {
+  isolation: isolate;
+}
+
+.hero-content .relative.group img {
+  position: relative;
+  z-index: 10;
+  transition: transform 0.3s ease-in-out;
+}
+
+.hero-content .relative.group:hover img {
+  transform: scale(1.02);
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+}
