@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import picOfMe from '../assets/picOfMe.jpeg'
 
 const Hero = () => {
-  const [theme, setTheme] = useState("nord");
+  const [theme, setTheme] = useState("night");
   const [secretCode, setSecretCode] = useState("");
   const [showEasterEgg, setShowEasterEgg] = useState(false);
   const validThemes = [
