@@ -109,3 +109,55 @@ input:focus, textarea:focus {
     transform: scale(1);
   }
 }
+
+/* Add this to your index.css or create a new file like layout-fixes.css and import it */
+
+/* Fix for fixed navbar overlapping content */
+html {
+  scroll-padding-top: 80px; /* Adjust to match your navbar height */
+}
+
+/* Fix for the hero component on mobile */
+#hero {
+  padding-top: 80px !important; /* Force padding to accommodate navbar */
+  min-height: calc(100vh - 0px) !important; /* Adjust for any footers if needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Ensure the down arrow button doesn't overlap with content */
+.scroll-btn-container {
+  position: relative !important; /* Override any absolute positioning */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Make sure all sections have adequate spacing */
+section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Add responsive spacing adjustments */
+@media (max-width: 768px) {
+  #hero .hero-content {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  /* Reduce image size on very small screens */
+  #hero .hero-image {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Ensure the mobile menu doesn't overflow the screen */
+.dropdown-content {
+  max-height: 80vh;
+  overflow-y: auto;
+}

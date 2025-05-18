@@ -56,7 +56,7 @@ const Hero = () => {
         </div>
       )}
       
-      <div className="hero-content flex-col lg:flex-row-reverse gap-8">
+      <div className="hero-content flex-col lg:flex-row-reverse gap-8 mt-10">
         <div className="relative group">
           <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-full blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
           <div className="relative">

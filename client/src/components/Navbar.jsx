@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import resume from "../assets/resume.pdf"
 
 const Navbar = () => {
@@ -22,9 +22,43 @@ const Navbar = () => {
     };
   }, []);
 
+  // Ensure navbar doesn't overlap content
+  useEffect(() => {
+    // Add padding to the body equal to navbar height
+    const navbar = document.getElementById("Navbar");
+    if (navbar) {
+      const navbarHeight = navbar.offsetHeight;
+      document.body.style.paddingTop = `${navbarHeight}px`;
+      
+      // Also update any section that might be immediately after the navbar
+      const hero = document.getElementById("hero");
+      if (hero) {
+        hero.style.marginTop = `-${navbarHeight}px`;
+        hero.style.paddingTop = `${navbarHeight}px`;
+      }
+    }
+    
+    return () => {
+      document.body.style.paddingTop = '0';
+    };
+  }, []);
+
   // Smooth scroll to section
   const scrollToSection = (sectionId) => {
-    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    const navbar = document.getElementById("Navbar");
+    const navbarHeight = navbar ? navbar.offsetHeight : 0;
+    
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navbarHeight;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+    
     setIsMenuOpen(false);
   };
 
@@ -44,7 +78,7 @@ const Navbar = () => {
               <li><button onClick={() => scrollToSection('skills')}>Skills</button></li>
               <li><button onClick={() => scrollToSection('experience')}>Experience</button></li>
               <li><button onClick={() => scrollToSection('contact')}>Contact</button></li>
-              <li><a target="_blank" href={resume} rel="noreferrer noopener">Resume</a></li>
+              <li><a href={resume} target="_blank" rel="noreferrer noopener">Resume</a></li>
             </ul>
           )}
         </div>
@@ -60,11 +94,10 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end hidden lg:flex">
-        <a href="/assets/resume.pdf" target="_blank" rel="noreferrer" className="btn btn-primary">Resume</a>
+        <a href={resume} target="_blank" rel="noreferrer noopener" className="btn btn-primary">Resume</a>
       </div>
     </div>
   );
 };
-
 
 export default Navbar;
