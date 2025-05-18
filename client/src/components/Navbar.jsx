@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import resume from "../assets/resume.pdf"
+import Resume from "../assets/Resume.pdf"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -78,7 +78,7 @@ const Navbar = () => {
               <li><button onClick={() => scrollToSection('skills')}>Skills</button></li>
               <li><button onClick={() => scrollToSection('experience')}>Experience</button></li>
               <li><button onClick={() => scrollToSection('contact')}>Contact</button></li>
-              <li><a href={resume} target="_blank" rel="noreferrer noopener">Resume</a></li>
+              <li><a href={Resume} target="_blank" rel="noreferrer noopener">Resume</a></li>
             </ul>
           )}
         </div>
@@ -94,7 +94,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end hidden lg:flex">
-        <a href={resume} target="_blank" rel="noreferrer noopener" className="btn btn-primary">Resume</a>
+        <a href={Resume} target="_blank" rel="noreferrer noopener" className="btn btn-primary">Resume</a>
       </div>
     </div>
   );
