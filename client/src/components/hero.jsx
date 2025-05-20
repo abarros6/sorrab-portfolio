@@ -5,11 +5,28 @@ const Hero = () => {
   const [theme, setTheme] = useState("night");
   const [secretCode, setSecretCode] = useState("");
   const [showEasterEgg, setShowEasterEgg] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const validThemes = [
     "lemonade", "nord", "night", "forest", "chess", 
     "light", "dark", "business", "winter", "autumn",
     "mytheme"
   ];
+  
+  // Check if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Check on initial load
+    checkMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+    
+    // Clean up
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   // Print valid themes to console on component mount
   useEffect(() => {
@@ -44,7 +61,7 @@ const Hero = () => {
   };
 
   return (
-    <div id="hero" className="hero min-h-screen bg-base-200">
+    <div id="hero" style={{ paddingTop: "80px", minHeight: "100vh", paddingBottom: "60px" }} className="bg-base-200 w-full flex flex-col justify-center items-center">
       {/* Easter egg notification */}
       {showEasterEgg && (
         <div className="toast toast-top toast-end z-50">
@@ -56,20 +73,22 @@ const Hero = () => {
         </div>
       )}
       
-      <div className="hero-content flex-col lg:flex-row-reverse gap-8 mt-10">
+      <div className="w-full px-4 max-w-6xl mx-auto flex flex-col lg:flex-row-reverse gap-8 justify-center items-center">
+        {/* Image Container */}
         <div className="relative group">
           <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-full blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
           <div className="relative">
             <img 
               src={picOfMe}
               alt="Anthony Barros"
-              className="rounded-full w-64 h-64 lg:w-80 lg:h-80 object-cover"
+              className="rounded-full w-52 h-52 md:w-64 md:h-64 lg:w-80 lg:h-80 object-cover"
             />
           </div>
         </div>
         
+        {/* Text Content */}
         <div className="max-w-lg">
-          <h1 className="text-5xl font-bold">
+          <h1 className="text-4xl md:text-5xl font-bold">
             Hi, I'm <span className="text-primary">Anthony Barros</span>
           </h1>
           <p className="py-4 text-lg">
@@ -125,16 +144,19 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="absolute bottom-10 w-full flex justify-center">
-        <button 
-          onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
-          className="animate-bounce p-2 rounded-full bg-base-300 hover:bg-primary hover:text-white transition-colors"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </button>
-      </div>
+      {/* Scroll button - only show on desktop */}
+      {!isMobile && (
+        <div className="mt-8 mb-4">
+          <button 
+            onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
+            className="p-2 rounded-full bg-base-300 hover:bg-primary hover:text-white transition-colors animate-bounce"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </button>
+        </div>
+      )}
     </div>
   );
 };
