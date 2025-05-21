@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import picOfMe from '../assets/picOfMe.jpeg'
+import picOfMe from '../assets/picOfMe.jpeg';
 
 const Hero = () => {
   const [theme, setTheme] = useState("night");
@@ -96,7 +96,8 @@ const Hero = () => {
           </p>
           <p className="py-2 opacity-80">
             Building user-friendly applications with modern web technologies.
-            Currently pursuing a Master's in Electrical Engineering at Western University.
+            Currently pursuing a Master's in Electrical Engineering while working as a member of 
+            the <a href="https://brain3dviz.com/" target="_blank" rel="noreferrer" className="link-hover link-primary">Brain3DViz</a> research lab at Western University.
           </p>
           
           <div className="mt-6 flex flex-col sm:flex-row gap-4">
